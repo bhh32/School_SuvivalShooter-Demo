@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     void Spawn ()
     {
         // If the player has no health left...
-        if(playerHealth.currentHealth <= 0f)
+        if(playerHealth.health <= 0f)
         {
             // ... exit the function.
             return;
@@ -28,6 +28,7 @@ public class EnemyManager : MonoBehaviour
         int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        GameObject newEnemy = Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        newEnemy.name = enemy.name;
     }
 }

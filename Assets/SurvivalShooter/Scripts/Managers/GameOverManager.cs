@@ -18,7 +18,7 @@ public class GameOverManager : MonoBehaviour
     void Update ()
     {
         // If the player has run out of health...
-        if(playerHealth.currentHealth <= 0)
+        if(playerHealth.health <= 0)
         {
             // ... tell the animator the game is over.
             anim.SetTrigger ("GameOver");

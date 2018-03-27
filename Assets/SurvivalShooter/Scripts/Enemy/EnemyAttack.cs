@@ -53,14 +53,14 @@ public class EnemyAttack : MonoBehaviour
         timer += Time.deltaTime;
 
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-        if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+        if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.health > 0)
         {
             // ... attack.
             Attack ();
         }
 
         // If the player has zero or less health...
-        if(playerHealth.currentHealth <= 0)
+        if(playerHealth.health <= 0)
         {
             // ... tell the animator the player is dead.
             anim.SetTrigger ("PlayerDead");
@@ -74,7 +74,7 @@ public class EnemyAttack : MonoBehaviour
         timer = 0f;
 
         // If the player has health to lose...
-        if(playerHealth.currentHealth > 0)
+        if(playerHealth.health > 0)
         {
             // ... damage the player.
             playerHealth.TakeDamage (attackDamage);

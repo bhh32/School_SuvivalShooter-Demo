@@ -18,7 +18,7 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;                                 // Reference to the light component.
     public Light faceLight;								// Duh
     float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
-
+    [SerializeField] PropertiesDemo propertiesDemo;
 
     void Awake ()
     {
@@ -107,6 +107,8 @@ public class PlayerShooting : MonoBehaviour
             {
                 // ... the enemy should take damage.
                 enemyHealth.TakeDamage (damagePerShot, shootHit.point);
+                    
+                propertiesDemo.Message = "You Hit A " + enemyHealth.gameObject.name;
             }
 
             // Set the second position of the line renderer to the point the raycast hit.
