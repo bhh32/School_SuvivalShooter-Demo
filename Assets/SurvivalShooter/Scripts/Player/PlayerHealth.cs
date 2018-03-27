@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
         {
             return currentHealth;
         }
+
+        protected set { currentHealth = value; }
     }
 
     Animator anim;                                              // Reference to the Animator component.
@@ -68,10 +70,10 @@ public class PlayerHealth : MonoBehaviour
         damaged = true;
 
         // Reduce the current health by the damage amount.
-        currentHealth -= amount;
+        health -= amount;
 
         // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
+        healthSlider.value = health;
 
         // Play the hurt sound effect.
         playerAudio.Play ();
@@ -83,6 +85,16 @@ public class PlayerHealth : MonoBehaviour
             Death ();
         }
     }
+
+    public void IncreaseHealth(int amount)
+    {
+        health += amount;
+
+        healthSlider.value = health;
+
+
+    }
+
 
 
     void Death ()

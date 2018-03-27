@@ -14,6 +14,7 @@ public class PropertiesDemo : MonoBehaviour
         set
         {
             message = value;
+            messageText.text = message;
         }
         get
         {
@@ -24,10 +25,5 @@ public class PropertiesDemo : MonoBehaviour
     void Start()
     {
         message = "You Haven't Hit Anything Yet!";
-    }
-
-    private void Update()
-    {
-        messageText.text = message;
     }
 }
